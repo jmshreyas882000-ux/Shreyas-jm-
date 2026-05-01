@@ -3,128 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
-    <!-- Importing a modern font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Premium Portfolio | 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #60a5fa; /* Modern Blue */
-            --bg: #0f172a;      /* Deep Dark Blue */
-            --card: #1e293b;    /* Lighter Card Blue */
-            --text: #f8fafc;
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            margin: 0;
+            overflow-x: hidden;
         }
 
-        header { 
-            height: 40vh;
+        /* Moving Background Glows */
+        .glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(50px);
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(100%, 100%); }
+        }
+
+        header {
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #050505 100%);
         }
 
-        h1 { 
-            font-size: 3rem; 
-            margin: 0; 
-            background: linear-gradient(to right, #60a5fa, #a855f7);
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .container { max-width: 900px; margin: -50px auto 2rem; padding: 0 1.5rem; }
-
-        section { 
-            background: var(--card); 
-            padding: 2rem; 
-            border-radius: 16px; 
-            margin-bottom: 2rem; 
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .tagline {
+            color: #888;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
         }
 
-        /* Hover effect to make it impressive */
+        .container {
+            max-width: 1000px;
+            margin: -100px auto 50px;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
         section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.1);
+            transform: scale(1.02);
         }
 
-        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; }
-
-        .skill-tag { 
-            display: inline-block; 
-            background: rgba(96, 165, 250, 0.1); 
-            color: var(--primary); 
-            padding: 6px 15px; 
-            border-radius: 8px; 
-            margin: 5px; 
-            font-size: 0.85rem; 
-            border: 1px solid rgba(96, 165, 250, 0.2);
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .project-card {
-            border-left: 2px solid var(--primary);
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        footer { text-align: center; padding: 3rem; color: #64748b; }
+        .skill-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
 
-        a { color: var(--primary); text-decoration: none; }
+        .skill-item:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: #000;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
 
+<div class="glow"></div>
+
 <header>
     <h1>[YOUR NAME]</h1>
-    <p style="font-weight: 300; letter-spacing: 2px;">ASPIRING [YOUR TARGET ROLE]</p>
+    <p class="tagline">The Future of [Your Industry]</p>
 </header>
 
 <div class="container">
     <section>
-        <h2>About Me</h2>
-        <p>A curious and driven fresher focused on building efficient solutions. Recently graduated with a degree in <strong>[Your Major]</strong>, I am eager to contribute to a forward-thinking team.</p>
+        <h2>The Mission</h2>
+        <p style="font-size: 1.2rem; color: #ccc;">
+            I am a high-velocity learner and <strong>[Your Degree]</strong> graduate. I don't just write code; I build digital experiences that matter. Ready to tackle the next big challenge.
+        </p>
     </section>
 
     <section>
-        <h2>Technical Stack</h2>
-        <div class="skill-tag">JavaScript</div>
-        <div class="skill-tag">Python</div>
-        <div class="skill-tag">GitHub</div>
-        <div class="skill-tag">Problem Solving</div>
-        <div class="skill-tag">Fast Learner</div>
-    </section>
-
-    <section>
-        <h2>Academic Projects</h2>
-        <div class="project-card">
-            <h3>Major Project Name</h3>
-            <p>Developed a system that [does X] using [Y Technology]. Achieved a [Result/Grade].</p>
-        </div>
-        <div class="project-card">
-            <h3>Mini Project Name</h3>
-            <p>Built a tool to solve [Problem]. Focused on user experience and clean code.</p>
+        <h2>Technical Arsenal</h2>
+        <div class="grid">
+            <div class="skill-item">Frontend Development</div>
+            <div class="skill-item">Creative Logic</div>
+            <div class="skill-item">UI/UX Design</div>
+            <div class="skill-item">Python / Automation</div>
         </div>
     </section>
 
     <section>
-        <h2>Let's Talk</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="#">linkedin.com/in/yourname</a></p>
+        <h2>Selected Artifacts</h2>
+        <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
+            <h3>Project Phoenix</h3>
+            <p style="color: #888;">An automated solution for [Problem]. Built with [Tech Stack].</p>
+            <a href="#" style="color: var(--primary); font-size: 0.9rem;">View Case Study →</a>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <h2>Ready for Launch?</h2>
+        <p>Currently open to junior roles and collaborations.</p>
+        <a href="mailto:your@email.com" class="btn">Get In Touch</a>
     </section>
 </div>
 
 <footer>
-    Designed for impact. Built by [Your Name].
+    <p style="text-align: center; color: #444; padding-bottom: 40px;">&copy; 2026 Portfolio Core. All rights reserved.</p>
 </footer>
 
 </body>
