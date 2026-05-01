@@ -3,167 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[YOUR NAME] | CSE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Systems Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #ffffff;
-            --accent: #000000;
-            --text-main: #111111;
-            --text-sub: #666666;
-            --grid: rgba(0,0,0,0.05);
+            --primary: #00e5ff;
+            --secondary: #7000ff;
+            --dark-bg: #08080c;
+            --glass-card: rgba(17, 17, 24, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            /* Engineering Grid Background */
-            background-image: linear-gradient(var(--grid) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-            background-size: 40px 40px;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Minimalist Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #000; }
+        /* Animated Background Mesh */
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(112, 0, 255, 0.05) 0%, transparent 40%);
+            z-index: -1;
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
-
+        /* Hero Section */
         header {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-bottom: 1px solid #000;
+            align-items: center;
+            padding: 0 20px;
         }
 
-        .label {
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+        .status-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
             margin-bottom: 20px;
-            color: var(--text-sub);
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
         }
 
         h1 {
             font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 700;
             margin: 0;
-            line-height: 0.9;
-            letter-spacing: -3px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 40%, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .intro-grid {
+        .hero-sub {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+
+        /* Grid Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+        }
+
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-top: 60px;
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        section { padding: 100px 0; border-bottom: 1px solid #eee; }
-
-        h2 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 40px; }
-
-        /* Project Cards - Clean & Large */
-        .project-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 40px 0;
-            border-top: 1px solid #eee;
-            transition: 0.3s;
+        .card {
+            background: var(--glass-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .project-row:hover { background: #fafafa; padding-left: 20px; }
-
-        .project-info h3 { font-size: 1.5rem; margin: 0; }
-        .project-tags { color: var(--text-sub); font-size: 0.8rem; margin-top: 10px; text-transform: uppercase; }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .skill-box {
-            border: 1px solid #000;
-            padding: 15px 25px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
+        .full-width { grid-column: span 3; }
+        .two-thirds { grid-column: span 2; }
+
+        /* Typography */
+        h2 { font-size: 1.8rem; margin-bottom: 20px; color: #fff; }
+        p { color: #a1a1aa; line-height: 1.6; }
+
+        .skill-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin: 0 8px 8px 0;
+            border: 1px solid var(--border);
         }
 
-        .skill-box:hover { background: #000; color: #fff; }
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-        footer { padding: 60px 0; display: flex; justify-content: space-between; color: var(--text-sub); font-size: 0.8rem; }
+        .project-link:hover { text-decoration: underline; }
 
-        @media (max-width: 768px) {
-            .intro-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 4rem; }
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .full-width, .two-thirds { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="bg-mesh"></div>
+
     <header>
-        <div class="label">Computer Science Engineer // Portfolio 2026</div>
+        <div class="status-badge">Available for Opportunity // 2026</div>
         <h1>[YOUR NAME]</h1>
-        <div class="intro-grid">
-            <p style="font-size: 1.2rem; line-height: 1.6;">
-                Focused on building scalable systems and elegant code architecture. I transform complex engineering problems into simple, functional digital solutions.
-            </p>
-            <div style="text-align: right;">
-                <p class="label">Based In</p>
-                <p>Available Worldwide</p>
-            </div>
-        </div>
+        <p class="hero-sub">Computer Science & Engineering graduate focused on building the next generation of scalable software systems.</p>
     </header>
 
-    <section id="projects">
-        <h2>Selected Works</h2>
-        
-        <div class="project-row">
-            <div class="project-info">
-                <h3>01 / Distributed Systems Project</h3>
-                <div class="project-tags">Java . AWS . Docker</div>
+    <div class="container">
+        <div class="bento-grid">
+            
+            <!-- About Me Card -->
+            <div class="card two-thirds">
+                <h2>Brief_Overview</h2>
+                <p>I specialize in translating complex logic into efficient, clean code. My engineering background allows me to approach problems with a systems-thinking mindset, ensuring scalability and performance in every line of code I write.</p>
             </div>
-            <div style="max-width: 400px; color: var(--text-sub);">
-                Optimized server response times by 40% using custom load-balancing algorithms.
-            </div>
-        </div>
 
-        <div class="project-row">
-            <div class="project-info">
-                <h3>02 / Full-Stack Platform</h3>
-                <div class="project-tags">React . Node.js . MongoDB</div>
+            <!-- Technical Stats -->
+            <div class="card">
+                <h2>Core_Stack</h2>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Java</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">AWS</div>
+                <div class="skill-tag">Git</div>
             </div>
-            <div style="max-width: 400px; color: var(--text-sub);">
-                A secure, end-to-end encrypted messaging application for enterprise use.
+
+            <!-- Featured Project -->
+            <div class="card full-width">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>Highlighted_Project_01</h2>
+                    <span style="color: var(--primary); font-family: 'JetBrains Mono';">v1.0.4</span>
+                </div>
+                <p>Designed and implemented a distributed data processing system that handled over 100k requests with 99.9% uptime. Leveraged cloud architecture and containerization for seamless deployment.</p>
+                <a href="#" class="project-link">View Documentation →</a>
             </div>
-        </div>
-    </section>
 
-    <section id="skills">
-        <h2>Competencies</h2>
-        <div class="skills-container">
-            <div class="skill-box">DATA STRUCTURES</div>
-            <div class="skill-box">ALGORITHMS</div>
-            <div class="skill-box">PYTHON</div>
-            <div class="skill-box">SQL</div>
-            <div class="skill-box">CLOUD COMPUTING</div>
-            <div class="skill-box">SYSTEM DESIGN</div>
-        </div>
-    </section>
+            <!-- Education Card -->
+            <div class="card">
+                <h2>Education</h2>
+                <p style="color: #fff; margin-bottom: 5px;">B.E. Computer Science</p>
+                <p style="font-size: 0.9rem;">[University Name]</p>
+                <p style="font-size: 0.9rem;">Class of 2026</p>
+            </div>
 
-    <footer>
-        <div>&copy; 2026 [YOUR NAME]</div>
-        <div>DESIGNED FOR PRECISION</div>
-        <div><a href="mailto:email@example.com" style="color:#000;">CONNECT →</a></div>
-    </footer>
-</div>
+            <!-- Contact Card -->
+            <div class="card two-thirds" style="background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(112, 0, 255, 0.1));">
+                <h2>Ready_to_Connect?</h2>
+                <p>I am looking for a challenging role where I can apply my CSE fundamentals to real-world products.</p>
+                <a href="mailto:email@example.com" class="project-link" style="font-size: 1.2rem;">Get in touch</a>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
