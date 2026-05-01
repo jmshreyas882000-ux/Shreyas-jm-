@@ -1,174 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shreyas JM | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreyas JM | Portfolio</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: black;
-      color: white;
-      scroll-behavior: smooth;
-    }
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
 
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2rem; margin-bottom: 20px; }
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
-    .btn {
-      padding: 10px 20px;
-      margin: 10px;
-      border-radius: 20px;
-      text-decoration: none;
-      color: white;
-      border: 1px solid white;
-    }
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
 
-    .btn-primary {
-      background: #3b82f6;
-      border: none;
-    }
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; margin-bottom: 20px; }
 
-    .grid {
-      display: grid;
-      gap: 20px;
-    }
+.btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+}
 
-    @media(min-width: 768px) {
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    }
+.btn-primary {
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  border: none;
+}
 
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      transition: 0.3s;
-    }
+.grid {
+  display: grid;
+  gap: 20px;
+}
 
-    .card:hover {
-      transform: scale(1.05);
-    }
+@media(min-width: 768px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
 
-    input, button {
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-    }
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
 
-    input {
-      width: 70%;
-    }
+.card:hover {
+  transform: translateY(-10px);
+}
 
-    button {
-      background: #3b82f6;
-      color: white;
-    }
-  </style>
+.chatbox {
+  max-width: 400px;
+  margin: auto;
+  background: #111;
+  padding: 10px;
+  border-radius: 10px;
+  height: 250px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+input {
+  padding: 10px;
+  width: 65%;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section>
-    <h1>Hi, I'm Shreyas JM</h1>
-    <p>AI • FinTech • Data Analytics Engineer</p>
+<div id="particles-js"></div>
 
-    <a href="#projects" class="btn btn-primary">Projects</a>
-    <a href="#contact" class="btn">Contact</a>
-  </section>
+<!-- HERO -->
+<section data-aos="fade-up">
+  <h1>Shreyas JM</h1>
+  <p>AI • FinTech • Data Engineer</p>
+  <a href="#projects" class="btn btn-primary">View Projects</a>
+  <a href="#contact" class="btn">Contact</a>
+</section>
 
-  <!-- ABOUT -->
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I build AI-powered systems combining finance, analytics, and automation.
-      Passionate about solving real-world problems using data.
-    </p>
-  </section>
+<!-- ABOUT -->
+<section data-aos="fade-up">
+  <h2>About Me</h2>
+  <p>
+    I design AI-powered solutions combining finance, analytics, and automation.
+    Focused on solving real-world problems with data-driven systems.
+  </p>
+</section>
 
-  <!-- SKILLS -->
-  <section>
-    <h2>Skills</h2>
-    <div class="grid grid-3">
-      <div class="card">Python, Machine Learning, Pandas</div>
-      <div class="card">Stock Market, Crypto Analysis</div>
-      <div class="card">HTML, CSS, JavaScript</div>
+<!-- SKILLS -->
+<section data-aos="fade-up">
+  <h2>Skills</h2>
+  <div class="grid grid-3">
+    <div class="card">Python • ML • Data Analysis</div>
+    <div class="card">Stock Market • Crypto • Finance</div>
+    <div class="card">HTML • CSS • JS • APIs</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" data-aos="fade-up">
+  <h2>Projects</h2>
+  <div class="grid grid-3">
+
+    <div class="card">
+      <h3>AI Financial Analyst</h3>
+      <p>ML-based stock prediction system</p>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>AI Financial Analyst</h3>
-        <p>Predict stock trends using machine learning.</p>
-      </div>
-
-      <div class="card">
-        <h3>Crypto Analyzer</h3>
-        <p>Track crypto prices and insights.</p>
-      </div>
-
-      <div class="card">
-        <h3>AI Marketing Tool</h3>
-        <p>Generate ads using AI automation.</p>
-      </div>
+    <div class="card">
+      <h3>Crypto Analyzer</h3>
+      <p>Real-time crypto tracking dashboard</p>
     </div>
-  </section>
 
-  <!-- AI CHATBOT -->
-  <section>
-    <h2>Ask About Me 🤖</h2>
+    <div class="card">
+      <h3>AI Marketing Tool</h3>
+      <p>AI-generated ads & automation</p>
+    </div>
 
-    <div id="chatbox" style="max-width:400px;margin:auto;background:#111;padding:10px;border-radius:10px;height:200px;overflow-y:auto;"></div>
+  </div>
+</section>
 
-    <br>
-    <input id="userInput" placeholder="Ask something..." />
-    <button onclick="sendMessage()">Send</button>
-  </section>
+<!-- CHATBOT -->
+<section data-aos="fade-up">
+  <h2>Ask About Me 🤖</h2>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <a href="mailto:your-email@gmail.com" class="btn btn-primary">Email Me</a>
-  </section>
+  <div class="chatbox" id="chatbox"></div>
+  <br>
+  <input id="input" placeholder="Ask something..." />
+  <button onclick="sendMessage()">Send</button>
+</section>
 
-  <script>
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const chatbox = document.getElementById("chatbox");
+<!-- CONTACT -->
+<section id="contact" data-aos="fade-up">
+  <h2>Contact</h2>
+  <a href="mailto:your-email@gmail.com" class="btn btn-primary">Email Me</a>
+</section>
 
-      const userText = input.value;
-      if (!userText) return;
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-      chatbox.innerHTML += "<p style='color:#3b82f6'>" + userText + "</p>";
+<script>
+AOS.init();
 
-      let reply = "Shreyas is an AI & FinTech enthusiast.";
+// PARTICLES
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    size: { value: 2 },
+    move: { speed: 1 },
+    line_linked: { enable: true }
+  }
+});
 
-      if (userText.toLowerCase().includes("skills"))
-        reply = "Python, ML, Finance, Web Dev";
+// CHATBOT
+function sendMessage() {
+  const input = document.getElementById("input");
+  const chat = document.getElementById("chatbox");
 
-      if (userText.toLowerCase().includes("projects"))
-        reply = "AI Financial Analyst, Crypto Analyzer, AI Marketing Tool";
+  let text = input.value;
+  if (!text) return;
 
-      chatbox.innerHTML += "<p>" + reply + "</p>";
+  chat.innerHTML += "<p style='color:#3b82f6'>" + text + "</p>";
 
-      input.value = "";
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
-  </script>
+  let reply = "Shreyas is an AI & FinTech enthusiast.";
+
+  if (text.toLowerCase().includes("skills"))
+    reply = "Python, ML, Finance, Web Dev";
+
+  if (text.toLowerCase().includes("projects"))
+    reply = "AI Financial Analyst, Crypto Analyzer, AI Marketing Tool";
+
+  chat.innerHTML += "<p>" + reply + "</p>";
+
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
 
 </body>
 </html>
