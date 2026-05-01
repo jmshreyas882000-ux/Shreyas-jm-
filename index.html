@@ -1,240 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyas JM | Computer Science Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00f2fe;
-            --secondary: #4facfe;
-            --accent: #ffd700;
-            --bg-dark: #02040a;
-            --glass: rgba(13, 17, 23, 0.7);
-            --border-glow: rgba(0, 242, 254, 0.15);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreyas JM | Portfolio</title>
 
-        body {
-            margin: 0;
-            background-color: var(--bg-dark);
-            color: #e6edf3;
-            font-family: 'Space Grotesk', sans-serif;
-            overflow-x: hidden;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-        /* 1. IMPRESSIVE DYNAMIC BACKGROUND */
-        .background-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 0% 0%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 100% 100%, rgba(79, 172, 254, 0.08) 0%, transparent 40%);
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: black;
+      color: white;
+      scroll-behavior: smooth;
+    }
 
-        /* The Engineering Grid with "Scanning" Light */
-        .background-container::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: linear-gradient(to bottom, black, transparent);
-        }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
 
-        /* 2. LAYOUT & NAVIGATION */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; margin-bottom: 20px; }
 
-        nav {
-            padding: 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid white;
+    }
 
-        .nav-brand { font-family: 'Fira Code', monospace; color: var(--primary); font-size: 1.1rem; }
+    .btn-primary {
+      background: #3b82f6;
+      border: none;
+    }
 
-        /* 3. HERO SECTION */
-        .hero {
-            padding: 120px 0 60px;
-            text-align: left;
-        }
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
 
-        .shimmer-text {
-            background: linear-gradient(90deg, #fff, var(--primary), #fff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 5s linear infinite;
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 700;
-            margin: 0; letter-spacing: -3px;
-        }
+    @media(min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
 
-        @keyframes shimmer {
-            to { background-position: 200% center; }
-        }
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
 
-        .hero-details {
-            font-size: 1.25rem;
-            color: #8b949e;
-            max-width: 700px;
-            margin-top: 25px;
-            line-height: 1.8;
-        }
+    .card:hover {
+      transform: scale(1.05);
+    }
 
-        /* 4. BENTO GRID SYSTEM */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
-            margin: 60px 0;
-        }
+    input, button {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
 
-        .bento-card {
-            background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 35px;
-            backdrop-filter: blur(12px);
-            transition: 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    input {
+      width: 70%;
+    }
 
-        .bento-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 30px var(--border-glow);
-            transform: translateY(-5px);
-        }
-
-        /* Card Sizes */
-        .small { grid-column: span 4; }
-        .medium { grid-column: span 8; }
-        .large { grid-column: span 12; }
-
-        /* 5. CONTENT STYLING */
-        .card-label {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.75rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .skill-pill {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.05);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 50px;
-            margin: 5px;
-            font-size: 0.9rem;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: #fff; display: block; }
-        .stat-label { color: #8b949e; font-size: 0.9rem; }
-
-        @media (max-width: 900px) {
-            .small, .medium { grid-column: span 12; }
-            .bento-grid { gap: 15px; }
-        }
-    </style>
+    button {
+      background: #3b82f6;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
 
-    <div class="background-container"></div>
+  <!-- HERO -->
+  <section>
+    <h1>Hi, I'm Shreyas JM</h1>
+    <p>AI • FinTech • Data Analytics Engineer</p>
 
-    <div class="container">
-        <nav>
-            <div class="nav-brand">SHREYAS_JM.SYS</div>
-            <div style="font-size: 0.8rem; letter-spacing: 2px;">V2.0.26</div>
-        </nav>
+    <a href="#projects" class="btn btn-primary">Projects</a>
+    <a href="#contact" class="btn">Contact</a>
+  </section>
 
-        <header class="hero">
-            <span style="color: var(--primary); font-family: 'Fira Code'; font-size: 0.9rem;">// COMPUTER SCIENCE ENGINEER</span>
-            <h1 class="shimmer-text">SHREYAS JM</h1>
-            <p class="hero-details">
-                Architecting intelligent solutions using <b>Data Science</b> and <b>Full-Stack Engineering</b>. 
-                Specializing in building scalable applications and deriving insights from complex datasets[cite: 1].
-            </p>
-        </header>
+  <!-- ABOUT -->
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I build AI-powered systems combining finance, analytics, and automation.
+      Passionate about solving real-world problems using data.
+    </p>
+  </section>
 
-        <div class="bento-grid">
-            
-            <!-- Skill Set -->
-            <div class="bento-card medium">
-                <span class="card-label">Tech_Stack</span>
-                <div style="margin-top: 15px;">
-                    <div class="skill-pill">Python (NLP/ML)</div>
-                    <div class="skill-pill">SQL (MySQL/MongoDB)</div>
-                    <div class="skill-pill">React.js</div>
-                    <div class="skill-pill">Node.js</div>
-                    <div class="skill-pill">Power BI</div>
-                    <div class="skill-pill">AWS Cloud</div>
-                    <div class="skill-pill">IoT & Arduino</div>
-                    <div class="skill-pill">Data Analytics</div>
-                </div>
-            </div>
-
-            <!-- Education Stat -->
-            <div class="bento-card small">
-                <span class="card-label">Academic_Score</span>
-                <span class="stat-number">7.9 CGPA</span>
-                <span class="stat-label">B.E. Computer Science[cite: 1]</span>
-            </div>
-
-            <!-- Featured Project -->
-            <div class="bento-card large">
-                <span class="card-label">Featured_Work</span>
-                <div class="project-grid">
-                    <div>
-                        <h3 style="margin-bottom: 10px;">IoT Greenhouse Monitoring</h3>
-                        <p style="font-size: 0.9rem; color: #8b949e;">Integrated real-time sensors for CO2, humidity, and temperature monitoring using NodeMCU and Cloud[cite: 1, 2].</p>
-                    </div>
-                    <div>
-                        <h3 style="margin-bottom: 10px;">Sentiment Analysis NLP[cite: 2]</h3>
-                        <p style="font-size: 0.9rem; color: #8b949e;">Built an NLP model with 73% accuracy using TF-IDF and LightGBM for product review classification[cite: 2].</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="bento-card small">
-                <span class="card-label">Certifications</span>
-                <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #8b949e;">
-                    <li style="margin-bottom: 10px; color: #fff;">• IBM Data Science[cite: 1]</li>
-                    <li style="margin-bottom: 10px; color: #fff;">• Google Data Analytics[cite: 1]</li>
-                    <li>• Microsoft Power BI[cite: 1]</li>
-                </ul>
-            </div>
-
-            <!-- Contact -->
-            <div class="bento-card medium" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.05) 0%, transparent 100%);">
-                <span class="card-label">Contact_Portal</span>
-                <h3>Ready to collaborate?</h3>
-                <p style="color: #8b949e; margin-bottom: 25px;">Available for Bangalore-based or global remote roles in Software Engineering and Data Science[cite: 1, 2].</p>
-                <a href="mailto:jmshreyas882000@gmail.com" style="color: var(--primary); text-decoration: none; font-family: 'Fira Code'; font-weight: bold;">LINK_ESTABLISHED →</a>
-            </div>
-
-        </div>
-
-        <footer style="padding-bottom: 60px; text-align: center; color: #484f58; font-size: 0.8rem;">
-            &copy; 2026 SHREYAS JM // SYSTEM_ORIGIN: BANGALORE[cite: 1, 2]
-        </footer>
+  <!-- SKILLS -->
+  <section>
+    <h2>Skills</h2>
+    <div class="grid grid-3">
+      <div class="card">Python, Machine Learning, Pandas</div>
+      <div class="card">Stock Market, Crypto Analysis</div>
+      <div class="card">HTML, CSS, JavaScript</div>
     </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>AI Financial Analyst</h3>
+        <p>Predict stock trends using machine learning.</p>
+      </div>
+
+      <div class="card">
+        <h3>Crypto Analyzer</h3>
+        <p>Track crypto prices and insights.</p>
+      </div>
+
+      <div class="card">
+        <h3>AI Marketing Tool</h3>
+        <p>Generate ads using AI automation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CHATBOT -->
+  <section>
+    <h2>Ask About Me 🤖</h2>
+
+    <div id="chatbox" style="max-width:400px;margin:auto;background:#111;padding:10px;border-radius:10px;height:200px;overflow-y:auto;"></div>
+
+    <br>
+    <input id="userInput" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <a href="mailto:your-email@gmail.com" class="btn btn-primary">Email Me</a>
+  </section>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chatbox = document.getElementById("chatbox");
+
+      const userText = input.value;
+      if (!userText) return;
+
+      chatbox.innerHTML += "<p style='color:#3b82f6'>" + userText + "</p>";
+
+      let reply = "Shreyas is an AI & FinTech enthusiast.";
+
+      if (userText.toLowerCase().includes("skills"))
+        reply = "Python, ML, Finance, Web Dev";
+
+      if (userText.toLowerCase().includes("projects"))
+        reply = "AI Financial Analyst, Crypto Analyzer, AI Marketing Tool";
+
+      chatbox.innerHTML += "<p>" + reply + "</p>";
+
+      input.value = "";
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+  </script>
 
 </body>
 </html>
