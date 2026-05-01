@@ -201,23 +201,29 @@ particlesJS("particles-js", {
 
 // CHATBOT
 function sendMessage() {
-  const input = document.getElementById("input");
+    const input = document.getElementById("input");
   const chat = document.getElementById("chatbox");
 
   let text = input.value;
   if (!text) return;
 
-  chat.innerHTML += "<p style='color:#3b82f6'>" + text + "</p>";
+  chat.innerHTML += `<p style="color:#3b82f6">${text}</p>`;
 
-  let reply = "Shreyas is an AI & FinTech enthusiast.";
+  let reply = "I'm not sure, but Shreyas is an AI & FinTech enthusiast.";
 
   if (text.toLowerCase().includes("skills"))
-    reply = "Python, ML, Finance, Web Dev";
+    reply = "Shreyas works with Python, Machine Learning, Finance, and Web Development.";
 
-  if (text.toLowerCase().includes("projects"))
-    reply = "AI Financial Analyst, Crypto Analyzer, AI Marketing Tool";
+  else if (text.toLowerCase().includes("projects"))
+    reply = "Key projects include AI Financial Analyst, Crypto Analyzer, and AI Marketing Tool.";
 
-  chat.innerHTML += "<p>" + reply + "</p>";
+  else if (text.toLowerCase().includes("contact"))
+    reply = "You can contact Shreyas via email or LinkedIn below.";
+
+  else if (text.toLowerCase().includes("who"))
+    reply = "Shreyas JM is an aspiring AI & FinTech Engineer focused on data-driven solutions.";
+
+  chat.innerHTML += `<p>${reply}</p>`;
 
   input.value = "";
   chat.scrollTop = chat.scrollHeight;
