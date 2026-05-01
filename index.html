@@ -176,6 +176,17 @@ button {
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
+  async function loadCrypto() {
+  const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd");
+  const data = await res.json();
+
+  document.getElementById("crypto").innerHTML = `
+    <p>Bitcoin: $${data.bitcoin.usd}</p>
+    <p>Ethereum: $${data.ethereum.usd}</p>
+  `;
+}
+
+loadCrypto();
 AOS.init();
 
 // PARTICLES
